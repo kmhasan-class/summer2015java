@@ -14,10 +14,14 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,7 +37,7 @@ import javafx.scene.control.TextField;
  * @author kmhasan
  */
 public class MainController implements Initializable {
-    final String DB_URL = "jdbc:mysql://localhost/studentdb";
+    final String DB_URL = "jdbc:mysql://172.17.0.44/studentdb";
     final String DB_USER = "cse4047";
     final String DB_PASS = "summer2015";
     @FXML
@@ -47,6 +51,7 @@ public class MainController implements Initializable {
     @FXML
     private ListView<Student> studentListView;
     private ObservableList<Student> students;
+    private FilteredList<Student> filteredStudents;
     
     private Connection connection;
     private Statement statement;
@@ -74,7 +79,8 @@ public class MainController implements Initializable {
             System.out.println("Query [" + query + "]");
             ResultSet result = statement.executeQuery(query);
             students = FXCollections.observableArrayList();
-            studentListView.setItems(students);
+            filteredStudents = new FilteredList(students, p -> true);
+            studentListView.setItems(filteredStudents);
             while (result.next()) {
                 Student student = new Student(result.getString("id"), 
                         result.getString("name"), 
@@ -91,7 +97,13 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         sexComboBox.getItems().setAll(Sex.values());
         sortComboBox.getItems().setAll(SortCriteria.values());
-        
+        searchNameField.textProperty().addListener((event, oldValue, newValue) -> {
+            filteredStudents.setPredicate(student -> {
+                if (newValue == null || newValue.length() == 0)
+                    return true;
+                else return student.getName().contains(newValue);
+            });
+        });
         try {
             Class.forName("com.mysql.jdbc.Driver");            
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);

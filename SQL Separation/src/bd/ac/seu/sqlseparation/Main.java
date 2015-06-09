@@ -26,13 +26,18 @@ public class Main {
         try {
             RandomAccessFile input = new RandomAccessFile(filename, "r");
             String line;
+            
             while ((line = input.readLine()) != null && !line.startsWith(blockname))
-                System.out.println(line);
+                if (line.startsWith("--"))
+                    continue;
+            
             if (line == null) return null;
+            
             while ((line = input.readLine()) != null && !line.equals("}"))
                 if (line.startsWith("--"))
                     continue;
                 else query += line;
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -43,14 +48,14 @@ public class Main {
     
     public Main() {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/studentdb", "cse4047", "summer2015");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://172.17.0.44/studentdb", "cse4047", "summer2015");
             PreparedStatement selectStatement = connection.prepareStatement(readSQL("course.sql", "LIST_COURSES"));
             PreparedStatement insertStatement = connection.prepareStatement(readSQL("course.sql", "ADD_COURSE"));
             ResultSet result = selectStatement.executeQuery();
             while (result.next())
                 System.out.println(result.getString("code") + ": " + result.getString("title") + " " + result.getString("credits"));
-            insertStatement.setString(1, "CSE2015");
-            insertStatement.setString(2, "Programming Language II (Java)");
+            insertStatement.setString(1, "CSE1033");
+            insertStatement.setString(2, "Data Structures");
             insertStatement.setDouble(3, 3.00);
             insertStatement.executeUpdate();
         } catch (SQLException ex) {

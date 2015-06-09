@@ -13,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,46 +22,14 @@ import java.util.logging.Logger;
  * @author kmhasan
  */
 public class Main {
-    public static String readSQL(String filename, String blockname) {
-        String query = "";
-        try {
-            RandomAccessFile input = new RandomAccessFile(filename, "r");
-            String line;
-            
-            while ((line = input.readLine()) != null && !line.startsWith(blockname))
-                if (line.startsWith("--"))
-                    continue;
-            
-            if (line == null) return null;
-            
-            while ((line = input.readLine()) != null && !line.equals("}"))
-                if (line.startsWith("--"))
-                    continue;
-                else query += line;
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return query.trim();
-    }
     
     public Main() {
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://172.17.0.44/studentdb", "cse4047", "summer2015");
-            PreparedStatement selectStatement = connection.prepareStatement(readSQL("course.sql", "LIST_COURSES"));
-            PreparedStatement insertStatement = connection.prepareStatement(readSQL("course.sql", "ADD_COURSE"));
-            ResultSet result = selectStatement.executeQuery();
-            while (result.next())
-                System.out.println(result.getString("code") + ": " + result.getString("title") + " " + result.getString("credits"));
-            insertStatement.setString(1, "CSE1033");
-            insertStatement.setString(2, "Data Structures");
-            insertStatement.setDouble(3, 3.00);
-            insertStatement.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        CourseDaoImplementation courseDao = new CourseDaoImplementation();
+        List<Course> courses = courseDao.getAllCourses();
+        for (Course course: courses)
+            System.out.println(course);
+        Course newCourse = new Course("MATH2015", "Linear Algebra", 3.00);
+        courseDao.addCourse(newCourse);
     }
     
     /**

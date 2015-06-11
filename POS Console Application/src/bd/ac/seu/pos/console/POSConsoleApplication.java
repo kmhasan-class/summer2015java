@@ -34,8 +34,8 @@ public class POSConsoleApplication {
         System.out.printf("%5d %-20s %-10s %5.2f\n", p3.getProductId(), p3.getProductName(), p3.getProductType(), p3.getUnitPrice());
         
         System.out.printf("\nList of Customers\n");
-        System.out.printf("%6d %-25s %11s\n", c1.getCustomerId(), c1.getCustomerName(), c1.getPhoneNumber());
-        System.out.printf("%6d %-25s %11s\n", c2.getCustomerId(), c2.getCustomerName(), c2.getPhoneNumber());
+        System.out.printf("%6d %-20s %11s\n", c1.getCustomerId(), c1.getCustomerName(), c1.getPhoneNumber());
+        System.out.printf("%6d %-20s %11s\n", c2.getCustomerId(), c2.getCustomerName(), c2.getPhoneNumber());
         
         System.out.printf("\nTransactions\n");
         System.out.printf("%s %s %s %f %f %f\n", t1.getDate(), t1.getCustomer().getCustomerName(),

@@ -12,12 +12,12 @@ package bd.ac.seu.pos.console;
 public class Customer {
     private int customerId;
     private String customerName;
-    private String customerPhoneNumber;
+    private String phoneNumber;
 
-    public Customer(int customerId, String customerName, String customerPhoneNumber) {
+    public Customer(int customerId, String customerName, String phoneNumber) {
         this.customerId = customerId;
         this.customerName = customerName;
-        this.customerPhoneNumber = customerPhoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public int getCustomerId() {
@@ -28,12 +28,12 @@ public class Customer {
         return customerName;
     }
 
-    public String getCustomerPhoneNumber() {
-        return customerPhoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhoneNumber(String newNumber) {
-        this.customerPhoneNumber = newNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
-
+    
 }

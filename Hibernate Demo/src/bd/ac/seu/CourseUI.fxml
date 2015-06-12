@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="149.0" prefWidth="520.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="bd.ac.seu.CourseUIController">
+   <children>
+      <VBox layoutX="34.0" layoutY="34.0" prefHeight="202.0" prefWidth="514.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button mnemonicParsing="false" onAction="#handleAddCourseAction" text="Add Course" />
+                  <Button mnemonicParsing="false" onAction="#handleBackAction" text="Back" />
+                  <Button mnemonicParsing="false" onAction="#handleNextAction" text="Next" />
+              </items>
+            </ToolBar>
+            <GridPane prefHeight="92.0" prefWidth="409.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="117.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="379.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Course Code" />
+                  <Label text="Course Title" GridPane.rowIndex="1" />
+                  <Label text="Credit Hours" GridPane.rowIndex="2" />
+                  <TextField fx:id="codeField" GridPane.columnIndex="1" />
+                  <TextField fx:id="titleField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="creditsField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

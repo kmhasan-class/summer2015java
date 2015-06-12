@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="214.0" prefWidth="396.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pos.gui.FXMLDocumentController">
+   <children>
+      <GridPane layoutX="35.0" layoutY="42.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="111.5" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.5" minWidth="10.0" prefWidth="223.5" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Product ID" />
+            <Label text="Product Name" GridPane.rowIndex="1" />
+            <Label text="Product Type" GridPane.rowIndex="2" />
+            <Label text="Unit Price" GridPane.rowIndex="3" />
+            <TextField fx:id="idField" GridPane.columnIndex="1" />
+            <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="typeField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleSaveAction" prefHeight="26.0" prefWidth="98.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleResetAction" prefHeight="26.0" prefWidth="78.0" text="Reset" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

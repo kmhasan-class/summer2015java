@@ -1,0 +1,24 @@
+Product ID: 105
+Product Name: Aarong Milk
+Product Type: Dairy
+Unit Price: 75.00
+Product ID: 106
+Product Name: Matador Pen
+Product Type: Stationery
+Unit Price: 5.00
+Product ID: 125
+Product Name: Walton Phone
+Product Type: Mobile
+Unit Price: 18000.0
+Product ID: 127
+Product Name: Symphony Phone
+Product Type: Mobile
+Unit Price: 8000.0
+Product ID: 150
+Product Name: Sammi's Grape Juice
+Product Type: Juice
+Unit Price: 80.0
+Product ID: 160
+Product Name: Mum Mineral Water
+Product Type: Mineral Water
+Unit Price: 15.0

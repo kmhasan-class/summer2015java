@@ -6,16 +6,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<TabPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bd.ac.seu.hibernate.FXMLDocumentController">
+<TabPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bd.ac.seu.hibernate.FXMLDocumentController">
    <tabs>
       <Tab text="Student">
          <content>
             <AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="247.0">
                <children>
-                  <GridPane layoutX="14.0" layoutY="14.0" prefHeight="90.0" prefWidth="222.0">
+                  <GridPane layoutX="14.0" layoutY="14.0" prefHeight="90.0" prefWidth="222.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
@@ -32,12 +31,12 @@
                         <DatePicker fx:id="dobPicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <TitledPane layoutX="14.0" layoutY="104.0" text="Address">
+                  <TitledPane layoutX="14.0" layoutY="104.0" text="Address" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                      <content>
                         <GridPane>
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="NEVER" maxWidth="94.0" minWidth="10.0" prefWidth="89.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.0" minWidth="10.0" prefWidth="123.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -55,7 +54,7 @@
                         </GridPane>
                      </content>
                   </TitledPane>
-                  <ToolBar layoutX="14.0" layoutY="241.0" prefHeight="40.0" prefWidth="222.0">
+                  <ToolBar layoutX="14.0" layoutY="241.0" prefHeight="40.0" prefWidth="222.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                     <items>
                       <Button mnemonicParsing="false" onAction="#handleStudentSaveAction" text="Save" />
                     </items>
@@ -68,10 +67,10 @@
          <content>
             <AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="247.0">
                <children>
-                  <GridPane layoutX="14.0" layoutY="14.0" prefHeight="90.0" prefWidth="222.0">
+                  <GridPane layoutX="14.0" layoutY="14.0" prefHeight="90.0" prefWidth="222.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -87,7 +86,7 @@
                         <TextField fx:id="creditsField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <ToolBar layoutX="14.0" layoutY="241.0" prefHeight="40.0" prefWidth="222.0">
+                  <ToolBar layoutX="14.0" layoutY="241.0" prefHeight="40.0" prefWidth="222.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                      <items>
                         <Button mnemonicParsing="false" onAction="#handleCourseSaveAction" text="Save" />
                      </items>
@@ -100,10 +99,10 @@
          <content>
             <AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="247.0">
                <children>
-                  <GridPane layoutX="14.0" layoutY="14.0">
+                  <GridPane layoutX="14.0" layoutY="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -116,7 +115,7 @@
                         <ComboBox fx:id="courseBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <ToolBar layoutX="14.0" layoutY="241.0" prefHeight="40.0" prefWidth="222.0">
+                  <ToolBar layoutX="14.0" layoutY="241.0" prefHeight="40.0" prefWidth="222.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                      <items>
                         <Button mnemonicParsing="false" onAction="#handleRegisterAction" text="Register" />
                      </items>

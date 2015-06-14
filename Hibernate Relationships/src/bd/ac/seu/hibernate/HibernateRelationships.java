@@ -24,6 +24,7 @@ public class HibernateRelationships extends Application {
         Scene scene = new Scene(root);
         stage.setTitle("Hibernate Relationships Demo");
         stage.setScene(scene);
+        //stage.setFullScreen(true);
         stage.show();
     }
 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="restaurant.browser.FXMLDocumentController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="327.0">
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="241.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="86.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="nameField" promptText="Restaurant name" />
+                  <TextField fx:id="areaField" prefHeight="26.0" prefWidth="120.0" promptText="Area" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="115.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="212.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="cuisineField" GridPane.columnIndex="1" />
+                  <TextField fx:id="hoursField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="reservationField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Reservations" GridPane.rowIndex="3" />
+                  <Label text="Cuisine" />
+                  <Label text="Operation hours" GridPane.rowIndex="1" />
+                  <Label text="Address" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                  <Button mnemonicParsing="false" onAction="#handleNewAction" text="New" />
+                <Button mnemonicParsing="false" onAction="#handleSaveAction" text="Save" />
+                  <Button mnemonicParsing="false" onAction="#handleBackAction" text="Back" />
+                  <Button mnemonicParsing="false" onAction="#handleNextAction" text="Next" />
+                  <Button mnemonicParsing="false" onAction="#handleLoadAction" text="Load" />
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

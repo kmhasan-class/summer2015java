@@ -57,11 +57,15 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", name=" + name + ", dob=" + dob + ", address=" + address + '}';
+        return id + " " + name;
     }
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
 }

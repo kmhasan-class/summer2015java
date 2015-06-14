@@ -21,7 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
+import java.time.ZoneId;
 /**
  *
  * @author kmhasan
@@ -72,8 +72,7 @@ public class FXMLDocumentController implements Initializable {
     private void handleStudentSaveAction(ActionEvent event) {
         String id = idField.getText();
         String name = nameField.getText();
-        Date dob = new Date(dobPicker.getValue().toString());
-        String house = houseField.getText();
+        Date dob = Date.from(dobPicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());        String house = houseField.getText();
         String street = streetField.getText();
         String city = cityField.getText();
         Student student = new Student(id, name, dob, new Address(house, street, city));

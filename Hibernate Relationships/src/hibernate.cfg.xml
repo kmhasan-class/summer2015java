@@ -7,7 +7,7 @@
     <property name="hibernate.connection.url">jdbc:mysql://172.17.0.119:3306/studentdb?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">cse4047</property>
     <property name="hibernate.connection.password">summer2015</property>
-    <property name="hibernate.hbm2ddl.auto">create</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="bd.ac.seu.hibernate.Student"/>
     <mapping class="bd.ac.seu.hibernate.Address"/>
     <mapping class="bd.ac.seu.hibernate.Course"/>

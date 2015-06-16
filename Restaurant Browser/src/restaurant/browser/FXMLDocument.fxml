@@ -19,7 +19,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="nameField" promptText="Restaurant name" />
+                  <TextField fx:id="nameField" onAction="#handleSearchAction" promptText="Restaurant name" />
                   <TextField fx:id="areaField" prefHeight="26.0" prefWidth="120.0" promptText="Area" GridPane.columnIndex="1" />
                </children>
             </GridPane>

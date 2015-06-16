@@ -53,6 +53,8 @@ public class FXMLDocumentController implements Initializable {
     
     private ObservableList<Student> students;
     private ObservableList<Course> courses;
+    @FXML
+    private TextField searchIdField;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -128,9 +130,11 @@ public class FXMLDocumentController implements Initializable {
             session = SessionFactorySingleton.getSessionFactory().openSession();
             Student student = studentBox.getSelectionModel().getSelectedItem();
             Course course = courseBox.getSelectionModel().getSelectedItem();
-            student.setCourse(course);
+            student.addCourse(course);
+            course.addStudent(student);
             transaction = session.beginTransaction();
             session.update(student);
+            session.update(course);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null)
@@ -139,6 +143,16 @@ public class FXMLDocumentController implements Initializable {
             session.close();
         }        
 
+    }
+
+    @FXML
+    private void handleSearchStudentAction(ActionEvent event) {
+        String id = searchIdField.getText();
+        Session session = SessionFactorySingleton.getSessionFactory().openSession();
+        Student student = (Student) session.get(Student.class, id);
+        System.out.println(student);
+        idField.setText(student.getId());
+        nameField.setText(student.getName());
     }
     
 }

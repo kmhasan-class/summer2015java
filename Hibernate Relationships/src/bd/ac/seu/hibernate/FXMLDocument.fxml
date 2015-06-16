@@ -6,11 +6,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bd.ac.seu.hibernate.FXMLDocumentController">
+<TabPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bd.ac.seu.hibernate.FXMLDocumentController">
    <tabs>
       <Tab text="Student">
          <content>
-            <AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="247.0">
+            <AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="287.0">
                <children>
                   <GridPane layoutX="14.0" layoutY="14.0" prefHeight="90.0" prefWidth="222.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                     <columnConstraints>
@@ -57,6 +57,7 @@
                   <ToolBar layoutX="14.0" layoutY="241.0" prefHeight="40.0" prefWidth="222.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                     <items>
                       <Button mnemonicParsing="false" onAction="#handleStudentSaveAction" text="Save" />
+                        <TextField fx:id="searchIdField" onAction="#handleSearchStudentAction" />
                     </items>
                   </ToolBar>
                </children>

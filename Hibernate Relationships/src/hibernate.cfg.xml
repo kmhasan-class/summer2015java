@@ -4,10 +4,10 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://172.17.0.119:3306/studentdb?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://172.17.0.119:3306/newstudentdb?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">cse4047</property>
     <property name="hibernate.connection.password">summer2015</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
     <mapping class="bd.ac.seu.hibernate.Student"/>
     <mapping class="bd.ac.seu.hibernate.Address"/>
     <mapping class="bd.ac.seu.hibernate.Course"/>

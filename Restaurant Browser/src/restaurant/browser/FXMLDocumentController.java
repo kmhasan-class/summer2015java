@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,7 +36,9 @@ public class FXMLDocumentController implements Initializable {
     private TextField addressField;
     @FXML
     private TextField reservationField;
-    Restaurant restaurants[];
+    //private Restaurant restaurants[];
+    private ArrayList<Restaurant> restaurants;
+    private int currentRestaurant = 0;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -78,10 +81,21 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleBackAction(ActionEvent event) {
+        if (currentRestaurant > 0)
+            currentRestaurant--;
+        displayRestaurant(currentRestaurant);
     }
 
     @FXML
     private void handleNextAction(ActionEvent event) {
+        //if (currentRestaurant < restaurants.length - 1) {
+        if (currentRestaurant < restaurants.size() - 1) {
+            currentRestaurant++;
+            //if (restaurants[currentRestaurant] == null)
+            if (restaurants.get(currentRestaurant) == null)
+                currentRestaurant--;
+        }
+        displayRestaurant(currentRestaurant);
     }
 
     /*
@@ -92,16 +106,19 @@ public class FXMLDocumentController implements Initializable {
     }
     */
     void displayRestaurant(int index) {
-        Restaurant r = restaurants[index];
+        //Restaurant r = restaurants[index];
+        Restaurant r = restaurants.get(index);
         nameField.setText(r.getName());
         areaField.setText(r.getArea());
+        cuisineField.setText(r.getCuisine());
         //displayRestaurant(restaurants[index]);
     }
     
     @FXML
     private void handleLoadAction(ActionEvent event) {
-        restaurants = new Restaurant[100];
-        int index = 0;
+        //restaurants = new Restaurant[100];
+        restaurants = new ArrayList<Restaurant>();
+        //int index = 0;
         try {
             RandomAccessFile input = new RandomAccessFile("restaurant.txt", "r");
             while (true) {
@@ -114,9 +131,10 @@ public class FXMLDocumentController implements Initializable {
                 String address = input.readLine();
                 String phone = input.readLine();
                 Restaurant r = new Restaurant(name, area, cuisine, hours, address, phone);
-                restaurants[index] = r;
+                //restaurants[index] = r;
+                restaurants.add(r);
                 System.out.println(r);
-                index++;
+                //index++;
             }
             displayRestaurant(0);
         } catch (FileNotFoundException ex) {
@@ -124,6 +142,20 @@ public class FXMLDocumentController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void handleSearchAction(ActionEvent event) {
+        System.out.println("I AM HERE!!");
+        String name = nameField.getText();
+        for (int i = 0; i < restaurants.size(); i++) {
+            Restaurant r = restaurants.get(i);
+            if (r.getName().contains(name)) {
+                currentRestaurant = i;
+                displayRestaurant(i);
+            }
+        }
+            
     }
     
 }

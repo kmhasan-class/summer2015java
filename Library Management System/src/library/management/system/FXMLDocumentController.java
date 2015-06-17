@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -35,6 +36,10 @@ public class FXMLDocumentController implements Initializable {
     private TextField yearField;
     Book books[];
     int currentIndex = 0;
+    @FXML
+    private Button nextButton;
+    @FXML
+    private Button backButton;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -105,12 +110,26 @@ public class FXMLDocumentController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         displayBook(0);
+        nextButton.setDisable(false);
     }
 
     @FXML
     private void handleNextAction(ActionEvent event) {
         currentIndex++;
+        if (currentIndex > 0)
+            backButton.setDisable(false);
+        if (books[currentIndex] != null)
+            displayBook(currentIndex);
+    }
+
+    @FXML
+    private void handleBackAction(ActionEvent event) {
+        if (currentIndex > 0)
+            currentIndex--;
+        if (currentIndex == 0)
+            backButton.setDisable(true);
         if (books[currentIndex] != null)
             displayBook(currentIndex);
     }

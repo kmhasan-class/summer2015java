@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="library.management.system.FXMLDocumentController">
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.management.system.FXMLDocumentController">
    <children>
       <VBox layoutX="5.0" layoutY="5.0">
          <children>
@@ -40,7 +40,8 @@
                 <Button mnemonicParsing="false" onAction="#handleNewAction" text="New" />
                   <Button mnemonicParsing="false" onAction="#handleSaveAction" text="Save" />
                   <Button mnemonicParsing="false" onAction="#handleLoadAction" text="Load" />
-                  <Button mnemonicParsing="false" onAction="#handleNextAction" text="Next" />
+                  <Button fx:id="nextButton" disable="true" mnemonicParsing="false" onAction="#handleNextAction" text="Next" />
+                  <Button fx:id="backButton" disable="true" mnemonicParsing="false" onAction="#handleBackAction" text="Back" />
               </items>
             </ToolBar>
          </children>

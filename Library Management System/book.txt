@@ -8,3 +8,13 @@ Oreilly
 Head First Java
 800.0
 2005
+6554
+Tolkein
+Hobbit
+640.0
+1950
+1687
+Cormen, Leiserson, Rivest, Stein
+Introduction to Algorithm
+850.0
+1990

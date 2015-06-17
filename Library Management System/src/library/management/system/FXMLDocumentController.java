@@ -33,7 +33,9 @@ public class FXMLDocumentController implements Initializable {
     private TextField priceField;
     @FXML
     private TextField yearField;
-
+    Book books[];
+    int currentIndex = 0;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -69,12 +71,48 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
+    //private void displayBook(Book book) {
+    private void displayBook(int index) {
+        Book book = books[index];
+        accessionField.setText("" + book.getAccessionNumber());
+        nameField.setText(book.getBookName());
+        authorField.setText(book.getAuthor());
+        priceField.setText("" + book.getPrice());
+        yearField.setText("" + book.getYear());
+    }
+    
     @FXML
     private void handleLoadAction(ActionEvent event) {
+        books = new Book[1000];
+        int index = 0;
+        try {
+            RandomAccessFile fin = new RandomAccessFile("book.txt", "r");
+            while (true) {
+                String accessionNumberString = fin.readLine();
+                if (accessionNumberString == null)
+                    break;
+                int accessionNumber = Integer.parseInt(accessionNumberString);
+                String authorName = fin.readLine();
+                String bookName = fin.readLine();
+                double price = Double.parseDouble(fin.readLine());
+                int year = Integer.parseInt(fin.readLine());
+                Book book = new Book(accessionNumber, bookName, authorName, price, year);
+                books[index] = book;
+                index++;
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("Could not find book.txt file!");
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        displayBook(0);
     }
 
     @FXML
     private void handleNextAction(ActionEvent event) {
+        currentIndex++;
+        if (books[currentIndex] != null)
+            displayBook(currentIndex);
     }
     
 }

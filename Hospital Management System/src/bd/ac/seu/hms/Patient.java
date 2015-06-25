@@ -16,6 +16,7 @@ public class Patient {
     private String patientName;
     private LocalDate dob;
     private BloodGroup bloodGroup;
+    private Sex sex;
     private String medicalHistory;
     private String contactPerson;
     private String contactNumber;
@@ -69,13 +70,26 @@ public class Patient {
 
     @Override
     public String toString() {
+        return patientName;
+    }
+
+    public String getFullText() {
         return patientId + "\n" 
                 + patientName + "\n" 
                 + dob + "\n" 
-                + bloodGroup + "\n" 
+                + bloodGroup + "\n"
+                + sex + "\n"
                 + medicalHistory + "\n" 
                 + contactPerson + "\n" 
                 + contactNumber;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
     }
 
     

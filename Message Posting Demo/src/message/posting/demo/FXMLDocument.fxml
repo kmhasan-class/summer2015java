@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="265.0" prefWidth="364.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="message.posting.demo.FXMLDocumentController">
+   <children>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="265.0" prefWidth="364.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Message" />
+                        <TextArea fx:id="messageArea" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Label text="Friends Tagged" />
+                        <ListView fx:id="friendsList" prefHeight="200.0" prefWidth="200.0" />
+                        <TextField fx:id="friendField" onAction="#handleAddTagAction" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                  <Button mnemonicParsing="false" text="Post Message" />
+                <Button mnemonicParsing="false" text="Next" />
+                  <Button mnemonicParsing="false" onAction="#handleAddTagAction" text="Add Tag" />
+                  <Button mnemonicParsing="false" onAction="#handleRemoveTagAction" text="Remove Tag" />
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

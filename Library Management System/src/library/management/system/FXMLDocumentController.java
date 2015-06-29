@@ -12,6 +12,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -35,14 +38,15 @@ public class FXMLDocumentController implements Initializable {
     private TextField priceField;
     @FXML
     private TextField yearField;
-    Book books[];
+    //Book books[];
     int currentIndex = 0;
     @FXML
     private Button nextButton;
     @FXML
     private Button backButton;
     @FXML
-    private ListView<?> bookList;
+    private ListView<Book> bookList;
+    private ObservableList<Book> books;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -71,7 +75,7 @@ public class FXMLDocumentController implements Initializable {
         try {
             RandomAccessFile fout = new RandomAccessFile("book.txt", "rw");
             fout.seek(fout.length());
-            fout.writeBytes(b.toString() + "\n");
+            fout.writeBytes(b.getFullInformation() + "\n");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -81,7 +85,8 @@ public class FXMLDocumentController implements Initializable {
 
     //private void displayBook(Book book) {
     private void displayBook(int index) {
-        Book book = books[index];
+        //Book book = books[index];
+        Book book = books.get(index);
         accessionField.setText("" + book.getAccessionNumber());
         nameField.setText(book.getBookName());
         authorField.setText(book.getAuthor());
@@ -91,7 +96,9 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleLoadAction(ActionEvent event) {
-        books = new Book[1000];
+        //books = new Book[1000];
+        books = FXCollections.observableArrayList();
+        bookList.setItems(books);
         int index = 0;
         try {
             RandomAccessFile fin = new RandomAccessFile("book.txt", "r");
@@ -105,8 +112,9 @@ public class FXMLDocumentController implements Initializable {
                 double price = Double.parseDouble(fin.readLine());
                 int year = Integer.parseInt(fin.readLine());
                 Book book = new Book(accessionNumber, bookName, authorName, price, year);
-                books[index] = book;
-                index++;
+                //books[index] = book;
+                //index++;
+                books.add(book);
             }
         } catch (FileNotFoundException ex) {
             System.out.println("Could not find book.txt file!");
@@ -123,8 +131,7 @@ public class FXMLDocumentController implements Initializable {
         currentIndex++;
         if (currentIndex > 0)
             backButton.setDisable(false);
-        if (books[currentIndex] != null)
-            displayBook(currentIndex);
+        displayBook(currentIndex);
     }
 
     @FXML
@@ -133,8 +140,13 @@ public class FXMLDocumentController implements Initializable {
             currentIndex--;
         if (currentIndex == 0)
             backButton.setDisable(true);
-        if (books[currentIndex] != null)
-            displayBook(currentIndex);
+        displayBook(currentIndex);
+    }
+
+    @FXML
+    private void handleListAction(MouseEvent event) {
+        currentIndex = bookList.getSelectionModel().getSelectedIndex();
+        displayBook(currentIndex);
     }
     
 }

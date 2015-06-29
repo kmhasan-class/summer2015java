@@ -10,7 +10,7 @@
    <children>
       <HBox layoutX="5.0" layoutY="5.0">
          <children>
-            <ListView fx:id="bookList" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="bookList" onMouseClicked="#handleListAction" prefHeight="200.0" prefWidth="200.0" />
             <VBox>
                <children>
                   <GridPane>

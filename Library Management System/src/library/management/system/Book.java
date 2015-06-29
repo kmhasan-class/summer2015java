@@ -53,6 +53,10 @@ public class Book {
     }
     
     public String toString() {
+        return this.bookName;
+    }
+
+    public String getFullInformation() {
         return this.accessionNumber + "\n" 
                 + this.author + "\n"
                 + this.bookName + "\n"

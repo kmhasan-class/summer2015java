@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 /**
@@ -40,6 +41,8 @@ public class FXMLDocumentController implements Initializable {
     private Button nextButton;
     @FXML
     private Button backButton;
+    @FXML
+    private ListView<?> bookList;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

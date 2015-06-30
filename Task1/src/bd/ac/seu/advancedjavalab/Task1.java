@@ -5,17 +5,37 @@
  */
 package bd.ac.seu.advancedjavalab;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author kmhasan
  */
 public class Task1 {
-
+    ?? subset ??
+    
+    public <T> void print(ArrayList<T> data) {
+        for (T t: data)
+            System.out.println(t);
+    }
+    
+    public Task1() {
+        ArrayList<String> cricketers = new ArrayList<>();
+        cricketers.add("Mashrafi");
+        cricketers.add("Sabbir");
+        cricketers.add("Nasir");
+        cricketers.add("Mushfiq");
+        cricketers.add("Mustafiz");
+        cricketers.add("Rubel");
+        cricketers.add("Tamim");
+        print(subset(cricketers, ??));
+        //print(cricketers);
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        new Task1();
     }
     
 }

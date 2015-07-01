@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package database.demo;
+package bd.ac.seu.dbdemo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,7 +27,7 @@ public class DatabaseDemo {
         String DB_PASS = "summer2015";
         
         String id = "2016000000116";
-        String name = "John Doe";
+        String name = "Jane Doe";
         int batch = 43;
         String address = "Bailey Road";
 

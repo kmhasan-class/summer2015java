@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bd.ac.seu;
+package bd.ac.seu.picalculator;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

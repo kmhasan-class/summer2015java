@@ -22,6 +22,7 @@ public class SavingsAccount extends BankAccount {
     
     @Override
     public void deposit(double amount) {
-        super.deposit(amount * 1.10);
+        super.deposit(amount);
+        balance = balance * 1.10;
     }
 }

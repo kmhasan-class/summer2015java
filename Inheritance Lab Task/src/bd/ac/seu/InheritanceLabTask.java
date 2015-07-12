@@ -28,11 +28,11 @@ public class InheritanceLabTask {
         // necessary.
         
         shapes.add(new Rectangle("r1", 10.0, 20.0));
-        shapes.add(new Square("s1", 10.0001));
+//        shapes.add(new Square("s1", 10.0001));
         shapes.add(new Rectangle("r2", 10.0001, 20.0002));
         shapes.add(new Rectangle("r3",  9.9999, 19.1999));
         shapes.add(new Circle("c1", 10.0)); // 10.0 is the radius of the circle
-        shapes.add(new Triangle("t1", 2.0, 3.0, 2.1)); // length of each side
+//        shapes.add(new Triangle("t1", 2.0, 3.0, 2.1)); // length of each side
         
         printShapes(shapes, "Before sorting\n------------");
         Collections.sort(shapes, shapeComparator);

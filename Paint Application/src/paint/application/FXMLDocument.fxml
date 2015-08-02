@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="432.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="paint.application.FXMLDocumentController">
+   <children>
+      <HBox>
+         <children>
+            <VBox>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleCircleAction" text="Circle" />
+                  <Button mnemonicParsing="false" onAction="#handleRectangleAction" text="Rectangle" />
+                  <Button mnemonicParsing="false" text="Line" />
+                  <Button mnemonicParsing="false" onAction="#handleClearAction" text="Clear" />
+                  <Button mnemonicParsing="false" onAction="#handleRedColorAction" text="RED" />
+                  <Button mnemonicParsing="false" onAction="#handleGreenColorAction" text="GREEN" />
+                  <Button mnemonicParsing="false" onAction="#handleBlueColorAction" text="BLUE" />
+                  <Button mnemonicParsing="false" onAction="#handleStartAnimationAction" text="Start Animation" />
+               </children>
+            </VBox>
+            <Canvas fx:id="drawingCanvas" height="400.0" onMouseClicked="#handleMouseClick" onMouseDragged="#handleMouseClick" onMouseReleased="#handleMouseRelease" width="400.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

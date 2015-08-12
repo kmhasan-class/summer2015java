@@ -1,0 +1,34 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 12, 2015, 12:23:31 PM
+    Author     : kmhasan
+*/
+
+.anchor-pane {
+    -fx-background-color: aquamarine;
+}
+
+.label {
+    -fx-text-fill: darkgoldenrod;
+    -fx-font: 15px serif;
+}
+
+.text-field {
+    -fx-background-color: aquamarine;
+}
+
+#codeField {
+    -fx-background-color: red;
+}
+
+#addButton {
+    -fx-graphic: url('http://png-4.findicons.com/files/icons/1014/ivista/128/plus.png');
+}
+
+#resetButton {
+    -fx-graphic: url('images/naila.jpg');
+}

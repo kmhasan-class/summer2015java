@@ -5,7 +5,9 @@
  */
 package chat;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -21,9 +23,16 @@ public class Client {
             Socket socket = new Socket("172.17.0.119", 6666);
             System.out.println("Connected to server " + socket);
             OutputStream out = socket.getOutputStream();
-            String message = "Hello there! My name is Abul.\n";
-            out.write(message.getBytes());
-            out.flush();
+            String message = "";
+            
+            //RandomAccessFile input = new RandomAccessFile("filename", "r");
+            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+            while ((message = input.readLine()) != null) {
+                out.write(message.getBytes());
+                out.flush();
+                if (message.length() == 0 || message.equals("QUIT"))
+                    break;
+            }
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }

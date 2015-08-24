@@ -22,30 +22,15 @@ public class Server {
     
     public Server(int portNumber) {
         this.portNumber = portNumber;
-        byte buffer[];
         
         try {
             ServerSocket serverSocket = new ServerSocket(portNumber);
             while (true) {
                 System.out.println("Waiting on clients...");
                 Socket clientSocket = serverSocket.accept();
-                System.out.println("Connected with " + clientSocket);
                 
-                InputStream in = clientSocket.getInputStream();
-                OutputStream out = clientSocket.getOutputStream();
-                
-                buffer = new byte[1000];
-                int errorCode = in.read(buffer);
-                String message = new String(buffer);
-                System.out.println(message.length() + " " + message);
-                message = message.toUpperCase();
-                
-                out.write(message.getBytes());
-                out.flush();
-                
-                System.out.println("Error code: " + errorCode);
-                if (message.startsWith("Bye"))
-                    break;
+                ThreadedServer threadedServer = new ThreadedServer(clientSocket);
+                threadedServer.start();
             }
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);

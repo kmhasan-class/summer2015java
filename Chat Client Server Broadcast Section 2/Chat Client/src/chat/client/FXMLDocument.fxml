@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="343.0" prefWidth="462.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="chat.client.FXMLDocumentController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <SplitPane dividerPositions="0.6206896551724138" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="296.0" prefWidth="434.0">
+               <items>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Chat log" />
+                        <TextArea fx:id="messageArea" editable="false" prefHeight="310.0" prefWidth="264.0" VBox.vgrow="ALWAYS" />
+                        <ToolBar maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" VBox.vgrow="NEVER">
+                          <items>
+                              <TextField fx:id="messageField" maxWidth="1.7976931348623157E308" minWidth="-Infinity" onAction="#sendMessage" prefHeight="26.0" prefWidth="191.0" />
+                            <Button mnemonicParsing="false" onAction="#sendMessage" text="Send" />
+                          </items>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+                  <AnchorPane maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="List of users" />
+                              <ListView fx:id="userList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="184.0" prefWidth="68.0" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+            <Label fx:id="statusLabel" maxWidth="1.7976931348623157E308" text="Status bar" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets top="14.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
